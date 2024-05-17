@@ -1,16 +1,12 @@
 package seleniumTests;
 
-import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.HomeFourPart;
+import pageObjects.HomePage;
 
 @RunWith(Parameterized.class)
-public class FaqTest {
-    private WebDriver driver;
+public class FaqTest extends AbstractTest{
     private final int indexOfQuestion;
     private final String textOfAnswer;
 
@@ -40,17 +36,10 @@ public class FaqTest {
     }
 
     @Test
-    public void penAnswersTest() {
-        driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        HomeFourPart homeFourPart = new HomeFourPart(driver);
-        homeFourPart.checkAnswerIsHidden(indexOfQuestion);
-        homeFourPart.clickQuestionButton(indexOfQuestion);
-        homeFourPart.checkAnswerIsDisplayedWithText(indexOfQuestion, textOfAnswer);
-    }
-
-    @After
-    public void teardown() {
-        driver.quit();
+    public void openAnswerTest() {
+        new HomePage(getWebDriver())
+                .checkAnswerIsHidden(indexOfQuestion)
+                .clickQuestionButton(indexOfQuestion)
+                .checkAnswerIsDisplayedWithText(indexOfQuestion, textOfAnswer);
     }
 }
