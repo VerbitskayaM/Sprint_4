@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;

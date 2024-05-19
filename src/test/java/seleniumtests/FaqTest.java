@@ -1,9 +1,9 @@
-package seleniumTests;
+package seleniumtests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import pageObjects.HomePage;
+import pageobjects.HomePage;
 
 @RunWith(Parameterized.class)
 public class FaqTest extends AbstractTest{
